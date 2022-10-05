@@ -1,0 +1,18 @@
+memset bzero memcpy memmove memchr memcmp strlen isalpha isdigit isalnum \
+				isascii isprint toupper tolower strchr strrchr strncmp strlcpy strlcat strnstr \
+				atoi calloc strdup substr strjoin strtrim split itoa strmapi putchar_fd putstr_fd \
+				putendl_fd putnbr_fd striteri
+
+
+	// size_t idx;
+	// buffer = dst;
+
+	// idx = 0;
+	// while(idx++ < len)
+	// 	buffer[idx-1] = ((char *)src)[idx-1];
+	// idx = 0;
+
+	// while (idx++ < len)
+	// 	((char *)dst)[idx - 1] = buffer[idx - 1];
+
+	// return (dst);
