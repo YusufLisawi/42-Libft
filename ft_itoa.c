@@ -6,13 +6,13 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:12:06 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/05 15:13:34 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/06 10:19:27 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_nblen(long nb)
+static int	ft_nblen(long nb)
 {
 	int	len;
 
@@ -30,7 +30,7 @@ int	ft_nblen(long nb)
 	return (len);
 }
 
-void	ft_itos(char **str, long nb)
+static void	ft_itos(char **str, long nb)
 {
 	long	i;
 

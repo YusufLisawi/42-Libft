@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/28 19:59:07 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/01 18:43:52 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/06 10:05:44 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	o_dst_len;
 
 	s = dstsize;
+	if (s == 0)
+		return (ft_strlen(src));
 	dst_len = ft_strlen(dst);
 	o_dst_len = ft_strlen(dst);
 	if (s < dst_len)

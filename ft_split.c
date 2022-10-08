@@ -6,70 +6,77 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 22:29:47 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/05 20:05:18 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/08 09:26:11 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_wordlen(char *s, char c)
-{
-	size_t	count;
-
-	count = 0;
-	while (s[count] != c)
-		count++;
-	return (count);
-}
-
-size_t	is_delimiter(char s, char c)
-{
-	if (s == c)
-		return (1);
-	return (0);
-}
-
-size_t	ft_countwords(char *str, char c)
+static size_t	ft_countwords(const char *str, char c)
 {
 	int	count;
-	int	is_char;
+	int	found_word;
 
 	count = 0;
-	is_char = 0;
+	found_word = 0;
 	while (*str)
 	{
-		if (*str != c && is_char == 0)
+		if (*str != c && found_word == 0)
 		{
-			is_char = 1;
+			found_word = 1;
 			count++;
 		}
 		if (*str == c)
-			is_char = 0;
+			found_word = 0;
 		str++;
 	}
 	return (count);
 }
 
-char	*alloc_str(char *s, char c)
+static int	ft_sizeofword(char const *s, char c, int iter)
 {
-	
+	int	count;
+
+	count = 0;
+	while (s[iter] != c && s[iter])
+	{
+		count++;
+		iter++;
+	}
+	return (count);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	char	*word;
-	char	**strs_arr;
+	int		j;
+	int		words_len;
+	char	**split;
+	int		word_size;
 
-	*strs_arr = (char **)malloc(sizeof(char *) * ft_countwords(s, c));
+	j = 0;
 	i = 0;
-	while (s[i] != '\0')
+	words_len = ft_countwords(s, c);
+	split = (char **)malloc(sizeof(char *) * (words_len + 1));
+	if (!split)
+		return (NULL);
+	while (j < words_len)
 	{
-		word = malloc(sizeof(char) * ft_wordlen(s, c));
+		while (s[i] == c)
+			i++;
+		word_size = ft_sizeofword(s, c, i);
+		split[j] = ft_substr(s, i, word_size);
+		i += word_size;
+		j++;
 	}
+	split[j] = 0;
+	return (split);
 }
 
-int main()
+int	main(void)
 {
-	printf("%zu", ft_countwords(";;;asdf;afsdf;afsa", ';'));
+	char	**s;
+
+	s = ft_split("            world", ';');
+	printf("%s", s[0]);
 }

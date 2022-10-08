@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 17:17:21 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/05 17:26:52 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/06 11:52:36 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main()
 	char	*str;
 
 	str = "1337";
-	s = str;
+	// s = str;
 	s = NULL;
-	s = "123";
-	// *(char *)s = "med";
+	// s = "123";
+	*(char *)s = "med";
 	printf("%p", s);
 }

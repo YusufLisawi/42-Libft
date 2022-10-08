@@ -6,13 +6,13 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:20:42 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/05 13:21:48 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/07 10:15:31 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	start_idx(char const *s1, char const *set)
+static size_t	start_idx(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	len;
@@ -28,7 +28,7 @@ size_t	start_idx(char const *s1, char const *set)
 	return (i);
 }
 
-size_t	end_idx(char const *s1, char const *set)
+static size_t	end_idx(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	len;
@@ -64,5 +64,3 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(trimmed, s1 + start, end - start + 1);
 	return (trimmed);
 }
-
-	// trimmed = ft_substr(s1, start, end - start);

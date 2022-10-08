@@ -1,6 +1,9 @@
 SRCS	= $(wildcard ft_*.c)
 
+SRCS_BONUS = $(wildcard BONUS/ft_*.c)
+
 OBJS	= $(SRCS:.c=.o)
+BOBJS	= $(SRCS_BONUS:.c=.o)
 
 NAME	= libft.a
 
@@ -19,8 +22,11 @@ $(NAME):	$(OBJS)
 
 all:		$(NAME)
 
+bonus: $(NAME) $(BOBJS)
+	ar rcs $(NAME) $(BOBJS)
+
 clean:
-			$(RM) $(OBJS)
+			$(RM) $(OBJS) $(BOBJS)
 
 fclean:		clean
 			$(RM) $(NAME)

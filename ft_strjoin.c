@@ -6,13 +6,13 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/06 21:48:13 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/05 10:01:34 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/07 10:15:00 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *dest, char *src)
+static char	*ft_strcat(char *dest, char *src)
 {
 	int	i;
 	int	j;
