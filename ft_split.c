@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 22:29:47 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/08 09:26:11 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/08 18:25:04 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,10 @@ char	**ft_split(char const *s, char c)
 	char	**split;
 	int		word_size;
 
-	j = 0;
 	i = 0;
+	j = 0;
+	if (!s)
+		return (0);
 	words_len = ft_countwords(s, c);
 	split = (char **)malloc(sizeof(char *) * (words_len + 1));
 	if (!split)
@@ -73,10 +75,10 @@ char	**ft_split(char const *s, char c)
 	return (split);
 }
 
-int	main(void)
-{
-	char	**s;
+// int	main(void)
+// {
+// 	char	**s;
 
-	s = ft_split("            world", ';');
-	printf("%s", s[0]);
-}
+// 	s = ft_split("            world", ';');
+// 	printf("%s", s[0]);
+// }

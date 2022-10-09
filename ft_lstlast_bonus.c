@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 12:12:44 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/06 12:55:28 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:15:38 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 t_list	*ft_lstlast(t_list *lst)
 {
 	t_list	*temp;
 
+	if (!lst)
+		return (0);
 	temp = lst;
 	while (temp)
 	{

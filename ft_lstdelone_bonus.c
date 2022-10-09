@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/05 17:17:21 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/06 11:52:36 by yelaissa         ###   ########.fr       */
+/*   Created: 2022/10/08 10:56:19 by yelaissa          #+#    #+#             */
+/*   Updated: 2022/10/09 20:15:32 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	main()
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	void	*s;
-	char	*str;
-
-	str = "1337";
-	// s = str;
-	s = NULL;
-	// s = "123";
-	*(char *)s = "med";
-	printf("%p", s);
+	if (lst != NULL && del != NULL)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }

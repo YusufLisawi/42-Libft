@@ -1,17 +1,17 @@
-SRCS	= $(wildcard ft_*.c)
+SRCS		= $(wildcard ft_*.c)
 
-SRCS_BONUS = $(wildcard BONUS/ft_*.c)
+SRCS_BONUS 	= $(wildcard ft_*_bonus.c)
 
-OBJS	= $(SRCS:.c=.o)
-BOBJS	= $(SRCS_BONUS:.c=.o)
+OBJS		= $(SRCS:.c=.o)
+OBJS_BONUS	= $(SRCS_BONUS:.c=.o)
 
-NAME	= libft.a
+NAME		= libft.a
 
-CC		= gcc
+CC			= gcc
 
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror
 
-RM		= rm -f
+RM			= rm -f
 
 %.o : %.c
 			$(CC) $(CFLAGS) -c $< -o $(<:c=o)
@@ -22,11 +22,11 @@ $(NAME):	$(OBJS)
 
 all:		$(NAME)
 
-bonus: $(NAME) $(BOBJS)
-	ar rcs $(NAME) $(BOBJS)
+bonus: 		$(NAME) $(OBJS_BONUS)
+			ar rcs $(NAME) $(OBJS_BONUS)
 
 clean:
-			$(RM) $(OBJS) $(BOBJS)
+			$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean:		clean
 			$(RM) $(NAME)

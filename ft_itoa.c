@@ -6,68 +6,58 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:12:06 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/06 10:19:27 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/09 20:24:47 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_nblen(long nb)
+static long int	ft_abs(long int nb)
+{
+	if (nb < 0)
+		return (-nb);
+	return (nb);
+}
+
+static int	ft_nblen(long int nbr)
 {
 	int	len;
 
-	len = 0;
-	if (nb <= 0)
+	if (nbr <= 0)
+		len = 1;
+	else
+		len = 0;
+	while (nbr != 0)
 	{
-		nb *= -1;
-		len++;
-	}
-	while (nb > 0)
-	{
-		nb = nb / 10;
+		nbr = nbr / 10;
 		len++;
 	}
 	return (len);
 }
 
-static void	ft_itos(char **str, long nb)
-{
-	long	i;
-
-	i = ft_nblen(nb) - 1;
-	if (nb < 0)
-	{
-		*str[0] = '-';
-		nb *= -1;
-	}
-	while (nb > 0)
-	{
-		str[0][i] = 48 + (nb % 10);
-		nb /= 10;
-		i--;
-	}
-}
-
 char	*ft_itoa(int n)
 {
+	int		len;
+	int		sign;
 	char	*str;
-	long	nb;
-	int		i;
 
-	nb = (long) n;
-	i = ft_nblen(nb);
-	str = (char *) malloc(sizeof(char) * (i + 1));
+	if (n < 0)
+		sign = -1;
+	else
+		sign = 1;
+	len = ft_nblen(n);
+	str = (char *)malloc(sizeof(char) * len + 1);
 	if (!str)
-		return (0);
-	if (nb == 0)
+		return (NULL);
+	str[len] = '\0';
+	len--;
+	while (len >= 0)
 	{
-		str[0] = '0';
-		str[1] = '\0';
+		str[len] = 48 + ft_abs(n % 10);
+		n = ft_abs(n / 10);
+		len--;
 	}
-	if (nb != 0)
-	{
-		str[i--] = '\0';
-		ft_itos(&str, nb);
-	}
+	if (sign == -1)
+		str[0] = '-';
 	return (str);
 }

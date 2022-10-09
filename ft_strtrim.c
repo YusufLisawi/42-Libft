@@ -6,61 +6,30 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 12:20:42 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/07 10:15:31 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:04:48 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	start_idx(char const *s1, char const *set)
-{
-	size_t	i;
-	size_t	len;
-
-	i = 0;
-	len = ft_strlen(s1);
-	while (i < len)
-	{
-		if (ft_strchr(set, s1[i]) == NULL)
-			break ;
-		i++;
-	}
-	return (i);
-}
-
-static size_t	end_idx(char const *s1, char const *set)
-{
-	size_t	i;
-	size_t	len;
-
-	i = 0;
-	len = ft_strlen(s1);
-	while (i < len)
-	{
-		if (ft_strchr(set, s1[len - i - 1]) == NULL)
-			break ;
-		i++;
-	}
-	return (len - i);
-}
-
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*trimmed;
-	size_t	start;
-	size_t	end;
+	size_t	front;
+	size_t	back;
+	char	*str;
 
-	if (!s1)
-		return (NULL);
-	if (!set)
-		return ((char *)s1);
-	start = start_idx(s1, set);
-	end = end_idx(s1, set);
-	if (start >= end)
-		return ((char *)"");
-	trimmed = (char *)malloc(sizeof(char) * (end - start) + 1);
-	if (!trimmed)
-		return (NULL);
-	ft_strlcpy(trimmed, s1 + start, end - start + 1);
-	return (trimmed);
+	str = NULL;
+	if (s1 != 0 && set != 0)
+	{
+		front = 0;
+		back = ft_strlen(s1);
+		while (s1[front] && ft_strchr(set, s1[front]))
+			front++;
+		while (s1[back - 1] && ft_strchr(set, s1[back - 1]) && back > front)
+			back--;
+		str = (char *)malloc(sizeof(char) * (back - front + 1));
+		if (str)
+			ft_strlcpy(str, &s1[front], back - front + 1);
+	}
+	return (str);
 }
