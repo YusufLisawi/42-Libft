@@ -23,10 +23,9 @@ static int	ft_nblen(long int nbr)
 {
 	int	len;
 
+	len = 0;
 	if (nbr <= 0)
-		len = 1;
-	else
-		len = 0;
+		len += 1;
 	while (nbr != 0)
 	{
 		nbr = nbr / 10;
@@ -41,10 +40,9 @@ char	*ft_itoa(int n)
 	int		sign;
 	char	*str;
 
+	sign = 1;
 	if (n < 0)
-		sign = -1;
-	else
-		sign = 1;
+		sign *= -1;
 	len = ft_nblen(n);
 	str = (char *)malloc(sizeof(char) * len + 1);
 	if (!str)
@@ -57,7 +55,7 @@ char	*ft_itoa(int n)
 		n = ft_abs(n / 10);
 		len--;
 	}
-	if (sign == -1)
+	if (sign < 0)
 		str[0] = '-';
 	return (str);
 }

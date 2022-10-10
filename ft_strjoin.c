@@ -14,19 +14,17 @@
 
 static char	*ft_strcat(char *dest, char *src)
 {
-	int	i;
+	int	dstlen;
 	int	j;
 
-	i = 0;
 	j = 0;
-	while (dest[i])
-		i++;
+	dstlen = ft_strlen(dest);
 	while (src[j])
 	{
-		dest[i + j] = src[j];
+		dest[dstlen + j] = src[j];
 		j++;
 	}
-	dest[i + j] = 0;
+	dest[dstlen + j] = 0;
 	return (dest);
 }
 
