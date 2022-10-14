@@ -6,29 +6,29 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 22:29:47 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/08 18:25:04 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/11 18:05:29 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_countwords(const char *str, char c)
+static int	ft_countwords(char const *str, char c)
 {
 	int	word;
-	int	found_word;
+	int	i;
 
 	word = 0;
-	found_word = 0;
-	while (*str)
+	i = 0;
+	while (str[i])
 	{
-		if (*str != c && found_word == 0)
+		while (str[i] == c)
+			i++;
+		if (str[i])
 		{
 			word++;
-			found_word = 1;
+			while (str[i] != c && str[i])
+				i++;
 		}
-		if (*str == c)
-			found_word = 0;
-		str++;
 	}
 	return (word);
 }
@@ -74,11 +74,3 @@ char	**ft_split(char const *s, char c)
 	splited[j] = 0;
 	return (splited);
 }
-
-// int	main(void)
-// {
-// 	char	**s;
-
-// 	s = ft_split("            world", ';');
-// 	printf("%s", s[0]);
-// }

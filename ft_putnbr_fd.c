@@ -14,6 +14,8 @@
 
 void	ft_putnbr_fd(int nb, int fd)
 {
+	if (fd < 0)
+		return ;
 	if (nb == -2147483648)
 	{
 		ft_putstr_fd("-2", fd);

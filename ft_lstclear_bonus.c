@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 10:56:19 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/09 20:19:03 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:54:33 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*curr;
+	t_list	*save;
 
-	curr = *lst;
-	while (curr != NULL)
+	if (!del || !lst)
+		return ;
+	while (*lst != NULL)
 	{
-		*lst = curr->next;
-		del(curr->content);
-		free(curr);
-		curr = *lst;
+		save = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = save;
 	}
+	*lst = 0;
 }

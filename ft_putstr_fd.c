@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/29 17:36:40 by hben-bou          #+#    #+#             */
-/*   Updated: 2022/10/05 10:22:38 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/12 10:18:26 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putstr_fd(char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (fd < 0)
+		return ;
 	if (s != NULL)
 	{
 		while (s[i])

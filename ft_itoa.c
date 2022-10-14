@@ -6,7 +6,7 @@
 /*   By: yelaissa <yelaissa@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 11:12:06 by yelaissa          #+#    #+#             */
-/*   Updated: 2022/10/09 20:24:47 by yelaissa         ###   ########.fr       */
+/*   Updated: 2022/10/11 10:53:05 by yelaissa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static long int	ft_abs(long int nb)
 	return (nb);
 }
 
-static int	ft_nblen(long int nbr)
+static int	ft_nblen(int nbr)
 {
 	int	len;
 
